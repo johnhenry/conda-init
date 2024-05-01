@@ -24,7 +24,7 @@ bash ./install.sh
 
 ## Usage
 
-### Initialize enviornment.yml
+### Initialize environment.yml
 
 When creating a project from scratch run the following command:
 
@@ -40,15 +40,15 @@ conda-init
 conda-init.ps1
 ```
 
-This creates a file named `enviornment.yml` in the current directory.
+This creates a file named `environment.yml` in the current directory.
 
-### Create environment from existing enviornment.yml
+### Create environment from existing environment.yml
 
-If an `enviornment.yml` file already exists,
+If an `environment.yml` file already exists,
 you can create the conda environment by running the following command:
 
 ```bash
-conda env create -f enviornment.yml
+conda env create -f environment.yml
 ```
 
 ### Misc
@@ -61,12 +61,18 @@ conda activate <environment name>
 
 List all conda environments
 
-```bash
+```shell
 conda env list
 ```
 
 Remove a conda environment
 
-```bash
+```shell
 conda env remove -n <environment name> --all
+```
+
+Export conda environment (use after insalling new packages)
+
+```shell
+conda env export > environment.yml
 ```
