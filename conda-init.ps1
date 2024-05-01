@@ -2,7 +2,7 @@ $ENVFILE_NAME = "environment.yml"
 
 $CONDA_ENV_NAME = $args[0] ?? (Split-Path -Path $PWD -Leaf)
 
-$CONDA_PYTHON_VERSION = "3.10"
+$CONDA_PYTHON_VERSION = $args[1] ?? ("3.10")
 
 $IMMEDIATE_INPUT = Read-Host "Enter environment name: (${CONDA_ENV_NAME})"
 $CONDA_ENV_NAME = if (![string]::IsNullOrEmpty($IMMEDIATE_INPUT)) { $IMMEDIATE_INPUT } else { $CONDA_ENV_NAME }
