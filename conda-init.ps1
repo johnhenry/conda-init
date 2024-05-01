@@ -1,7 +1,7 @@
-$PACKAGE_NAME = "package.conda.ps1"
 $ENVFILE_NAME = "environment.yml"
 
 $CONDA_ENV_NAME = $args[0] ?? (Split-Path -Path $PWD -Leaf)
+
 $CONDA_PYTHON_VERSION = "3.10"
 
 $IMMEDIATE_INPUT = Read-Host "Enter environment name: (${CONDA_ENV_NAME})"
@@ -12,5 +12,6 @@ $CONDA_PYTHON_VERSION = if (![string]::IsNullOrEmpty($IMMEDIATE_INPUT)) { $IMMED
 
 Write-Output "Creating environment: $CONDA_ENV_NAME with python version: $CONDA_PYTHON_VERSION"
 conda create -n $CONDA_ENV_NAME python=$CONDA_PYTHON_VERSION -y
+
 Write-Output "Creating environment file: $ENVFILE_NAME"
 conda env export -n $CONDA_ENV_NAME > $ENVFILE_NAME
