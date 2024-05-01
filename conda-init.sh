@@ -6,7 +6,7 @@ CONDA_ENV_NAME=${PWD##*/}
 CONDA_ENV_NAME="${ONE:-$CONDA_ENV_NAME}"
 
 TWO=$2
-CONDA_PYTHON_VERSION=3.10
+CONDA_PYTHON_VERSION=3.10.14
 CONDA_PYTHON_VERSION="${TWO:-$CONDA_PYTHON_VERSION}"
 
 read -p "Enter environment name: (${CONDA_ENV_NAME}) " IMMEDIATE_INPUT
@@ -16,7 +16,12 @@ read -p "Enter environment version: (${CONDA_PYTHON_VERSION}) " IMMEDIATE_INPUT
 CONDA_PYTHON_VERSION="${IMMEDIATE_INPUT:-$CONDA_PYTHON_VERSION}"
 
 echo "Creating environment: $CONDA_ENV_NAME with python version: $CONDA_PYTHON_VERSION"
-conda create -n $CONDA_ENV_NAME python=$CONDA_PYTHON_VERSION -y
 
-echo "Creating environment file: $ENVFILE_NAME"
-conda env export -n $CONDA_ENV_NAME > $ENVFILE_NAME
+FILE="name: $CONDA_ENV_NAME
+channels:
+  - defaults
+dependencies:
+  - python=$CONDA_PYTHON_VERSION
+"
+
+echo "$FILE" > $ENVFILE_NAME

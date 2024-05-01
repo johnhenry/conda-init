@@ -70,9 +70,3 @@ Remove a conda environment
 ```shell
 conda env remove -n <environment name> --all
 ```
-
-Export conda environment (use after insalling new packages)
-
-```shell
-conda env export > environment.yml
-```
