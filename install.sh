@@ -1,3 +1,4 @@
+#!/bin/bash
 ONE=$1
 DESTINATION="$HOME/bin"
 DESTINATION="${ONE:-$DESTINATION}"
