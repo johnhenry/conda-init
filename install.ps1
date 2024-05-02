@@ -1,4 +1,4 @@
-$DESTINATION = $args[0] ?? "$HOME/bin"
+$DESTINATION = $args[0] ?? "C:\Windows\"
 
 $IMMEDIATE_INPUT = Read-Host "Install to: (${DESTINATION})"
 
