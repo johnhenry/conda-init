@@ -1,71 +1,82 @@
-# Conda Initialization Scripts
+# Conda Init
 
-Create conda environments
+Small script to initialize a minimal [_conda_]() environment file
+with `name` and `python version`.
 
-## Pre-requesits
+Useful for running multiple small python projects on the same computer.
 
-To use, you must have conda installed
-
-- [Anaconda](https://www.anaconda.com/products/individual)
+Includes versions for bash (mac/linux) and powershell (windows).
 
 ## Installation
 
-For powershell/windows, install the executable by running the following:
+1. Clone the repository and move into the directory
 
-```powershell
-pwsh ./install.ps1
+```shell
+git clone git@github.com:johnhenry/conda-init.git
+cd conda-init
 ```
 
-For bash/mac/linux, install the executable by running the following:
+2. Run the appropriate installation script
 
-```bash
-bash ./install.sh
-```
+   - bash:
+
+   ```shell
+   bash ./install.sh
+   ```
+
+   - powershell:
+
+   ```shell
+   pwsh ./install.ps1
+   ```
 
 ## Usage
 
 ### Initialize environment.yml
 
-When creating a project from scratch run the following command:
+Run the appropriate script inside of a project to initialize a `environment.yml` file.
+It should be included as part of source control.
 
-- For Mac/Linux
+- bash:
 
 ```bash
 conda-init
 ```
 
-- For Windows
+- powershell:
 
 ```powershell
 conda-init.ps1
 ```
 
-This creates a file named `environment.yml` in the current directory.
+## Usage w/conda
 
-### Create environment from existing environment.yml
-
-If an `environment.yml` file already exists,
-you can create the conda environment by running the following command:
+Use `environment.yml` with _conda_ to create an environment specific to your project.
 
 ```bash
 conda env create -f environment.yml
 ```
 
-### Misc
-
-Activate conda environment
+Once created, activate the environment before working on a project.
+Note that restarting the shell means you will need to re-activate the environment.
 
 ```shell
 conda activate <environment name>
 ```
 
-List all conda environments
+Deactivate the environment by closing the terminal window or running:
+
+```shell
+conda deactivate
+```
+
+List existing conda environments:
 
 ```shell
 conda env list
 ```
 
-Remove a conda environment
+Remove a conda environment:
 
 ```shell
 conda env remove -n <environment name> --all
