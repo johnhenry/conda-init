@@ -1,5 +1,5 @@
 # Define default installation path
-$DESTINATION = $args[0] ?? "$HOME\Documents\"
+$DESTINATION = $args[0] ?? "C:\Windows\"
 
 # Prompt user for installation directory
 $IMMEDIATE_INPUT = Read-Host "Install to: (${DESTINATION})"
